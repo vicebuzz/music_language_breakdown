@@ -9,4 +9,4 @@
 
 ## Resources used
 * (Tunemymusic) -> [https://www.tunemymusic.com/]
-- Used it to scrape music and turn and get it as a CSV file
+Used it to scrape music and turn and get it as a CSV file
