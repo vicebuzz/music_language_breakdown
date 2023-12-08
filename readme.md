@@ -26,7 +26,7 @@ Another present challenge is the absence of labled data to see model accuracy. A
 
 ### Stage 1 - intial testing and error validation
 
-[imgs/initial_result.png] - Result of language breakdown after first model run
+[Figure1](https://github.com/vicebuzz/music_language_breakdown/blob/main/imgs/initial_result.png) - Result of language breakdown after first model run
 
 Thngs that can be spotted straigt away is the large number of unknown values and wide range of languages detected. This is a sign of model overfitting and making results innacurate. Even though the dataset that was chosen is not the biggest in terms of languages it is able to detect, only 43, compared to 315 or 299, available there. For example, there were 8 hungarian songs detected, even though I believe only have a few, maximum 3 in my playlist. Same goes to 17 latin songs detected out of nowhere. Even some clearly English songs like Overdrive or Overcome were not labeled as English, instead as Unknown.
 
