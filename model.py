@@ -17,7 +17,7 @@ print ("Spark NLP Version :", sparknlp.version())
 spark
 
 # model_name = 'ld_wiki_cnn_231'
-model_name = 'ld_wiki_tatoeba_cnn_375'
+model_name = 'ld_wiki_tatoeba_cnn_43'
 
 # load pandas dataframe
 songs_df = pd.read_csv("My Apple Music Library.csv")
@@ -48,7 +48,9 @@ df = spark.createDataFrame(text_list, StringType()).toDF("text")
 result = nlpPipeline.fit(df).transform(df)
 
 
-result.select(F.explode(F.arrays_zip(result.document.result, 
+view = result.select(F.explode(F.arrays_zip(result.document.result, 
                                      result.language.result)).alias("cols")) \
-      .select(F.expr("cols['0']").alias("Document"),
-              F.expr("cols['1']").alias("Language")).show()
+      .select(F.expr("cols['0']").alias("Song"),
+              F.expr("cols['1']").alias("Language"))
+
+view.write.format("csv").save("result")
